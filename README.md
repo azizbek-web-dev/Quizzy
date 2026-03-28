@@ -14,7 +14,7 @@ Cover / hero preview:
 
 Additional previews:
 
-![Quizzy screenshot 1](screenshots/photo_01.jpg)
+![Quizzy screenshot 1](screenshots/photo_02.png)
 
 ![Quizzy screenshot 2](screenshots/photo_1.jpg)
 
