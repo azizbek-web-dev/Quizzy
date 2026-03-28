@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Settings — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-shell.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-sidebar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-toolbar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-page-header.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-settings.css" />
+  </head>
+  <body>
+    <div class="dash-app dash-app--settings">
+      <input
+        type="checkbox"
+        id="dash-sidebar-toggle"
+        class="visually-hidden"
+        aria-hidden="true"
+      />
+
+      <aside class="dash-sidebar" aria-label="Dashboard navigatsiyasi">
+        <a class="dash-sidebar__brand" href="index.html">
+          <span class="dash-sidebar__logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient
+                  id="dashLogoMarkGrad"
+                  x1="6"
+                  y1="4"
+                  x2="26"
+                  y2="28"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#22c55e" />
+                  <stop offset="0.5" stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                stroke="url(#dashLogoMarkGrad)"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span class="dash-sidebar__logo-text">
+            <span class="dash-sidebar__logo-quiz">Quiz</span><span class="dash-sidebar__logo-zy">zy</span>
+          </span>
+        </a>
+
+        <div class="dash-sidebar__search" role="search">
+          <img
+            class="dash-sidebar__search-icon"
+            src="assets/icons/ic_search.svg"
+            alt=""
+            width="18"
+            height="18"
+          />
+          <input
+            class="dash-sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Qidiruv"
+          />
+        </div>
+
+        <nav class="dash-sidebar__nav" aria-label="Asosiy">
+          <a class="dash-sidebar__link" href="dashboard.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_dashboard.svg" alt="" width="22" height="22" />
+            Dashboard
+          </a>
+          <a class="dash-sidebar__link" href="quizzes.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/lucide_book-open.svg" alt="" width="22" height="22" />
+            Quizzes
+          </a>
+          <a class="dash-sidebar__link" href="#">
+            <img class="dash-sidebar__link-icon" src="assets/icons/uil_calendar.svg" alt="" width="22" height="22" />
+            Events
+          </a>
+          <a class="dash-sidebar__link" href="students.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/tabler_users.svg" alt="" width="22" height="22" />
+            Students
+          </a>
+        </nav>
+
+        <p class="dash-sidebar__section-label">Manage</p>
+        <nav class="dash-sidebar__nav dash-sidebar__footer-nav" aria-label="Boshqaruv">
+          <a class="dash-sidebar__link dash-sidebar__link--active" href="settings.html" aria-current="page">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_outline-settings.svg" alt="" width="22" height="22" />
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <label class="dash-app__sidebar-backdrop" for="dash-sidebar-toggle" tabindex="-1" aria-hidden="true"></label>
+
+      <div class="dash-app__main">
+        <header class="dash-toolbar">
+          <label class="dash-toolbar__menu-btn" for="dash-sidebar-toggle">
+            <span class="visually-hidden">Yon panelni ochish yoki yopish</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+            </svg>
+          </label>
+
+          <a class="dash-toolbar__brand" href="index.html">
+            <span class="dash-toolbar__logo-mark" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient
+                    id="dashToolbarLogoGrad"
+                    x1="6"
+                    y1="4"
+                    x2="26"
+                    y2="28"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#22c55e" />
+                    <stop offset="0.5" stop-color="#7c3aed" />
+                    <stop offset="1" stop-color="#f97316" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                  stroke="url(#dashToolbarLogoGrad)"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="dash-toolbar__logo-text">
+              <span class="dash-toolbar__logo-quiz">Quiz</span><span class="dash-toolbar__logo-zy">zy</span>
+            </span>
+          </a>
+
+          <div class="dash-toolbar__search" role="search">
+            <img
+              class="dash-toolbar__search-icon"
+              src="assets/icons/ic_search.svg"
+              alt=""
+              width="18"
+              height="18"
+            />
+            <input
+              class="dash-toolbar__search-input"
+              type="search"
+              placeholder="Search..."
+              aria-label="Qidiruv"
+            />
+          </div>
+
+          <div class="dash-toolbar__actions">
+            <a class="dash-toolbar__btn-create" href="create-quiz.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+              <span>Create Quiz</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="dash-app__content">
+          <header class="dash-page-head">
+            <div class="dash-page-head__text">
+              <h1 class="dash-page-head__title">Settings</h1>
+              <p class="dash-page-head__greet">Manage your account settings and preferences</p>
+            </div>
+          </header>
+
+          <div class="set-tabs-shell">
+            <div class="set-tabs" role="tablist" aria-label="Sozlamalar bo‘limlari">
+              <button
+                type="button"
+                id="tab-profile"
+                class="set-tabs__btn set-tabs__btn--active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="set-panel-profile"
+              >
+                Profile
+              </button>
+              <button type="button" id="tab-account" class="set-tabs__btn" role="tab" aria-selected="false" aria-controls="set-panel-account">
+                Account
+              </button>
+              <button type="button" id="tab-notifications" class="set-tabs__btn" role="tab" aria-selected="false" aria-controls="set-panel-notifications">
+                Notifications
+              </button>
+              <button type="button" id="tab-appearance" class="set-tabs__btn" role="tab" aria-selected="false" aria-controls="set-panel-appearance">
+                Appearance
+              </button>
+              <button type="button" id="tab-privacy" class="set-tabs__btn" role="tab" aria-selected="false" aria-controls="set-panel-privacy">
+                Privacy
+              </button>
+              <button type="button" id="tab-billing" class="set-tabs__btn" role="tab" aria-selected="false" aria-controls="set-panel-billing">
+                Billing
+              </button>
+            </div>
+          </div>
+
+          <div id="set-panel-profile" class="set-panel" role="tabpanel" aria-labelledby="tab-profile">
+            <section class="set-card" aria-labelledby="set-profile-title">
+              <header class="set-card__head">
+                <h2 id="set-profile-title" class="set-card__title">Profile Information</h2>
+                <p class="set-card__subtitle">Update your profile information and public details</p>
+              </header>
+
+              <form class="set-profile" action="#" method="post">
+                <div class="set-profile__photo">
+                  <div class="set-profile__avatar" role="img" aria-label="Profil rasmi"></div>
+                  <button type="button" class="set-profile__btn-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <path d="M17 8l-5-5-5 5M12 3v12" />
+                    </svg>
+                    Change Photo
+                  </button>
+                </div>
+
+                <div class="set-form">
+                  <div class="set-form__grid">
+                    <div class="set-form__field">
+                      <label class="set-form__label" for="set-first-name">First Name</label>
+                      <input class="set-form__input" id="set-first-name" name="firstName" type="text" value="John" autocomplete="given-name" />
+                    </div>
+                    <div class="set-form__field">
+                      <label class="set-form__label" for="set-last-name">Last Name</label>
+                      <input class="set-form__input" id="set-last-name" name="lastName" type="text" value="Doe" autocomplete="family-name" />
+                    </div>
+                    <div class="set-form__field">
+                      <label class="set-form__label" for="set-email">Email</label>
+                      <input class="set-form__input" id="set-email" name="email" type="email" value="johndoe@gmail.com" autocomplete="email" />
+                    </div>
+                    <div class="set-form__field">
+                      <label class="set-form__label" for="set-role">Role</label>
+                      <input class="set-form__input" id="set-role" name="role" type="text" value="Teacher" />
+                    </div>
+                    <div class="set-form__field set-form__field--full">
+                      <label class="set-form__label" for="set-bio">Bio</label>
+                      <textarea class="set-form__textarea" id="set-bio" name="bio" rows="4">Experienced educator passionate about interactive learning and helping students reach their full potential.</textarea>
+                    </div>
+                  </div>
+                  <div class="set-form__actions">
+                    <button type="submit" class="set-form__submit">Save Changes</button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div id="set-panel-account" class="set-panel" role="tabpanel" aria-labelledby="tab-account" hidden>
+            <section class="set-card set-card--spaced" aria-labelledby="set-security-title">
+              <header class="set-card__head">
+                <h2 id="set-security-title" class="set-card__title">Account Security</h2>
+                <p class="set-card__subtitle">Update your password and security settings</p>
+              </header>
+              <form action="#" method="post">
+                <div class="set-form__grid set-form__grid--single">
+                  <div class="set-form__field set-form__field--full">
+                    <label class="set-form__label" for="set-current-password">Current Password</label>
+                    <input class="set-form__input" id="set-current-password" name="currentPassword" type="password" autocomplete="current-password" />
+                  </div>
+                  <div class="set-form__field set-form__field--full">
+                    <label class="set-form__label" for="set-new-password">New Password</label>
+                    <input class="set-form__input" id="set-new-password" name="newPassword" type="password" autocomplete="new-password" />
+                  </div>
+                  <div class="set-form__field set-form__field--full">
+                    <label class="set-form__label" for="set-confirm-password">Confirm New Password</label>
+                    <input class="set-form__input" id="set-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" />
+                  </div>
+                </div>
+                <div class="set-form__actions set-form__actions--start">
+                  <button type="submit" class="set-form__submit">Update Password</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="set-card set-card--spaced" aria-labelledby="set-2fa-title">
+              <header class="set-card__head">
+                <h2 id="set-2fa-title" class="set-card__title">Two-Factor Authentication</h2>
+                <p class="set-card__subtitle">Add an extra layer of security to your account</p>
+              </header>
+              <div class="set-2fa">
+                <div class="set-2fa__text">
+                  <h3 class="set-2fa__title">Enable Two-Factor Authentication</h3>
+                  <p class="set-2fa__desc">Require a verification code from your authenticator app when you sign in.</p>
+                </div>
+                <label class="set-switch">
+                  <span class="visually-hidden">Enable two-factor authentication</span>
+                  <input type="checkbox" class="set-switch__input" name="twoFactor" checked />
+                  <span class="set-switch__track" aria-hidden="true">
+                    <span class="set-switch__thumb"></span>
+                  </span>
+                </label>
+              </div>
+            </section>
+
+            <section class="set-card set-card--spaced" aria-labelledby="set-connected-title">
+              <header class="set-card__head">
+                <h2 id="set-connected-title" class="set-card__title">Connected Accounts</h2>
+                <p class="set-card__subtitle">Connect your account to other services</p>
+              </header>
+              <div class="set-connected">
+                <div class="set-connected__row">
+                  <div class="set-connected__brand">
+                    <span class="set-connected__logo">
+                      <img src="assets/icons/devicon_google.svg" alt="" width="20" height="20" />
+                    </span>
+                    <div>
+                      <div class="set-connected__name">Google</div>
+                      <p class="set-connected__hint">Connect your Google account</p>
+                    </div>
+                  </div>
+                  <button type="button" class="set-btn-connect">Connect</button>
+                </div>
+                <div class="set-connected__row">
+                  <div class="set-connected__brand">
+                    <span class="set-connected__logo">
+                      <img src="assets/icons/logos_facebook.svg" alt="" width="20" height="20" />
+                    </span>
+                    <div>
+                      <div class="set-connected__name">Facebook</div>
+                      <p class="set-connected__hint">Connect your Facebook account</p>
+                    </div>
+                  </div>
+                  <button type="button" class="set-btn-connect">Connect</button>
+                </div>
+                <div class="set-connected__row">
+                  <div class="set-connected__brand">
+                    <span class="set-connected__logo">
+                      <img src="assets/icons/logos_x.svg" alt="" width="20" height="20" />
+                    </span>
+                    <div>
+                      <div class="set-connected__name">X</div>
+                      <p class="set-connected__hint">Connect your X account</p>
+                    </div>
+                  </div>
+                  <button type="button" class="set-btn-connect">Connect</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="set-card" aria-labelledby="set-danger-title">
+              <header class="set-card__head">
+                <h2 id="set-danger-title" class="set-danger__title">Danger Zone</h2>
+                <p class="set-card__subtitle">Irreversible actions for your account</p>
+              </header>
+              <div class="set-danger__panel">
+                <h3 class="set-danger__panel-title">Delete Account</h3>
+                <p class="set-danger__panel-desc">
+                  Once you delete your account, there is no going back. All your data will be permanently removed.
+                </p>
+                <button type="button" class="set-btn-delete">Delete Account</button>
+              </div>
+            </section>
+          </div>
+
+          <div id="set-panel-notifications" class="set-panel" role="tabpanel" aria-labelledby="tab-notifications" hidden>
+            <section class="set-card" aria-labelledby="set-notify-title">
+              <header class="set-card__head">
+                <h2 id="set-notify-title" class="set-card__title">Notification Preferences</h2>
+                <p class="set-card__subtitle">Choose how and when you want to be notified</p>
+              </header>
+
+              <form class="set-notify" action="#" method="post">
+                <div class="set-notify__block">
+                  <h3 class="set-notify__block-title">Email Notifications</h3>
+                  <ul class="set-notify__list">
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Quiz Completions</p>
+                        <p class="set-notify__row-desc">Receive notifications when students complete your quizzes</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Email: quiz completions</span>
+                        <input type="checkbox" class="set-switch__input" name="emailQuizCompletions" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Event Reminders</p>
+                        <p class="set-notify__row-desc">Get reminded before scheduled quiz events start</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Email: event reminders</span>
+                        <input type="checkbox" class="set-switch__input" name="emailEventReminders" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">New Student Joins</p>
+                        <p class="set-notify__row-desc">Know when a new student joins your classroom or group</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Email: new student joins</span>
+                        <input type="checkbox" class="set-switch__input" name="emailNewStudents" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Marketing &amp; Updates</p>
+                        <p class="set-notify__row-desc">Product news, tips, and occasional promotional emails</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Email: marketing and updates</span>
+                        <input type="checkbox" class="set-switch__input" name="emailMarketing" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <hr class="set-notify__divider" />
+
+                <div class="set-notify__block">
+                  <h3 class="set-notify__block-title">In-App Notifications</h3>
+                  <ul class="set-notify__list">
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Quiz Completions</p>
+                        <p class="set-notify__row-desc">See alerts inside the app when quizzes are finished</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">In-app: quiz completions</span>
+                        <input type="checkbox" class="set-switch__input" name="appQuizCompletions" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Event Reminders</p>
+                        <p class="set-notify__row-desc">In-app reminders before your events begin</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">In-app: event reminders</span>
+                        <input type="checkbox" class="set-switch__input" name="appEventReminders" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">New Student Joins</p>
+                        <p class="set-notify__row-desc">Instant in-app notices when students are added</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">In-app: new student joins</span>
+                        <input type="checkbox" class="set-switch__input" name="appNewStudents" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <hr class="set-notify__divider" />
+
+                <fieldset class="set-notify__freq">
+                  <legend class="set-notify__legend">Notification Frequency</legend>
+                  <div class="set-notify__radios">
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="notifyFrequency" value="immediate" checked />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Immediately</span>
+                    </label>
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="notifyFrequency" value="daily" />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Daily Digest</span>
+                    </label>
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="notifyFrequency" value="weekly" />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Weekly Digest</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="set-form__actions set-form__actions--start">
+                  <button type="submit" class="set-form__submit">Save Preferences</button>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div id="set-panel-appearance" class="set-panel" role="tabpanel" aria-labelledby="tab-appearance" hidden>
+            <section class="set-card" aria-labelledby="set-appear-title">
+              <header class="set-card__head">
+                <h2 id="set-appear-title" class="set-card__title">Appearance</h2>
+                <p class="set-card__subtitle">Customize how Quizzy looks for you</p>
+              </header>
+
+              <form class="set-appear" action="#" method="post">
+                <fieldset class="set-appear__section">
+                  <legend class="set-appear__legend">Theme</legend>
+                  <div class="set-theme-grid">
+                    <label class="set-theme-card">
+                      <input class="set-theme-card__input" type="radio" name="theme" value="dark" checked />
+                      <span class="set-theme-card__body">
+                        <span class="set-theme-card__check" aria-hidden="true">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M20 6L9 17l-5-5"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="set-theme-card__preview set-theme-card__preview--dark">
+                          <span class="set-theme-card__bar"></span>
+                          <span class="set-theme-card__bar set-theme-card__bar--short"></span>
+                          <span class="set-theme-card__bar"></span>
+                        </span>
+                        <span class="set-theme-card__name">Dark</span>
+                      </span>
+                    </label>
+                    <label class="set-theme-card">
+                      <input class="set-theme-card__input" type="radio" name="theme" value="light" />
+                      <span class="set-theme-card__body">
+                        <span class="set-theme-card__check" aria-hidden="true">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M20 6L9 17l-5-5"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="set-theme-card__preview set-theme-card__preview--light">
+                          <span class="set-theme-card__bar"></span>
+                          <span class="set-theme-card__bar set-theme-card__bar--short"></span>
+                          <span class="set-theme-card__bar"></span>
+                        </span>
+                        <span class="set-theme-card__name">Light</span>
+                      </span>
+                    </label>
+                    <label class="set-theme-card">
+                      <input class="set-theme-card__input" type="radio" name="theme" value="system" />
+                      <span class="set-theme-card__body">
+                        <span class="set-theme-card__check" aria-hidden="true">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M20 6L9 17l-5-5"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="set-theme-card__preview set-theme-card__preview--system">
+                          <span class="set-theme-card__bar"></span>
+                          <span class="set-theme-card__bar set-theme-card__bar--short"></span>
+                          <span class="set-theme-card__bar"></span>
+                        </span>
+                        <span class="set-theme-card__name">System</span>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <hr class="set-notify__divider" />
+
+                <fieldset class="set-appear__section">
+                  <legend class="set-appear__legend">Accent Color</legend>
+                  <div class="set-accent-grid">
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="purple" checked />
+                      <span class="set-accent__dot" style="--set-accent-fill: #7c3aed"></span>
+                      <span class="visually-hidden">Purple</span>
+                    </label>
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="blue" />
+                      <span class="set-accent__dot" style="--set-accent-fill: #3b82f6"></span>
+                      <span class="visually-hidden">Blue</span>
+                    </label>
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="green" />
+                      <span class="set-accent__dot" style="--set-accent-fill: #22c55e"></span>
+                      <span class="visually-hidden">Green</span>
+                    </label>
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="red" />
+                      <span class="set-accent__dot" style="--set-accent-fill: #ef4444"></span>
+                      <span class="visually-hidden">Red</span>
+                    </label>
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="amber" />
+                      <span class="set-accent__dot" style="--set-accent-fill: #f59e0b"></span>
+                      <span class="visually-hidden">Amber</span>
+                    </label>
+                    <label class="set-accent">
+                      <input class="set-accent__input" type="radio" name="accentColor" value="pink" />
+                      <span class="set-accent__dot" style="--set-accent-fill: #ec4899"></span>
+                      <span class="visually-hidden">Pink</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <hr class="set-notify__divider" />
+
+                <fieldset class="set-notify__freq">
+                  <legend class="set-notify__legend">Notification Frequency</legend>
+                  <div class="set-notify__radios">
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="appearanceDigest" value="immediate" checked />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Immediately</span>
+                    </label>
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="appearanceDigest" value="daily" />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Daily Digest</span>
+                    </label>
+                    <label class="set-radio">
+                      <input class="set-radio__input" type="radio" name="appearanceDigest" value="weekly" />
+                      <span class="set-radio__mark" aria-hidden="true"></span>
+                      <span class="set-radio__label">Weekly Digest</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="set-form__actions set-form__actions--start">
+                  <button type="submit" class="set-form__submit">Save Preferences</button>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div id="set-panel-privacy" class="set-panel" role="tabpanel" aria-labelledby="tab-privacy" hidden>
+            <section class="set-card" aria-labelledby="set-privacy-title">
+              <header class="set-card__head">
+                <h2 id="set-privacy-title" class="set-card__title">Privacy Settings</h2>
+                <p class="set-card__subtitle">Control your privacy and data settings</p>
+              </header>
+
+              <form class="set-privacy set-notify" action="#" method="post">
+                <div class="set-notify__block">
+                  <h3 class="set-notify__block-title">Profile Visibility</h3>
+                  <ul class="set-notify__list">
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Public Profile</p>
+                        <p class="set-notify__row-desc">Allow others to view your profile and statistics</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Public profile</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyPublicProfile" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Show Online Status</p>
+                        <p class="set-notify__row-desc">Display when you are active on the platform</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Show online status</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyOnlineStatus" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Activity History</p>
+                        <p class="set-notify__row-desc">Show your quiz creation and participation history</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Activity history</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyActivityHistory" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <hr class="set-notify__divider" />
+
+                <div class="set-notify__block">
+                  <h3 class="set-notify__block-title">Data Usage</h3>
+                  <ul class="set-notify__list">
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Analytics &amp; Improvements</p>
+                        <p class="set-notify__row-desc">Allow us to collect anonymous usage data to improve the platform</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Analytics and improvements</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyAnalytics" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Personalization</p>
+                        <p class="set-notify__row-desc">Use your activity to personalize your experience</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Personalization</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyPersonalization" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Cookies</p>
+                        <p class="set-notify__row-desc">Manage cookie preferences and tracking</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Cookies</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyCookies" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <hr class="set-notify__divider" />
+
+                <div class="set-notify__block">
+                  <h3 class="set-notify__block-title">Data Export &amp; Deletion</h3>
+                  <ul class="set-notify__list">
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Export Your Data</p>
+                        <p class="set-notify__row-desc">Download a copy of your personal data</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Export your data</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyExportData" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="set-notify__row">
+                      <div class="set-notify__row-text">
+                        <p class="set-notify__row-title">Delete Your Data</p>
+                        <p class="set-notify__row-desc">Request deletion of your personal data</p>
+                      </div>
+                      <label class="set-switch">
+                        <span class="visually-hidden">Delete your data</span>
+                        <input type="checkbox" class="set-switch__input" name="privacyDeleteData" checked />
+                        <span class="set-switch__track" aria-hidden="true">
+                          <span class="set-switch__thumb"></span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="set-form__actions set-form__actions--start">
+                  <button type="submit" class="set-form__submit">Save Preferences</button>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div id="set-panel-billing" class="set-panel" role="tabpanel" aria-labelledby="tab-billing" hidden>
+            <section class="set-card set-bill-overview-card" aria-labelledby="set-bill-overview-title">
+              <header class="set-card__head">
+                <h2 id="set-bill-overview-title" class="set-card__title">Subscription</h2>
+                <p class="set-card__subtitle">Your current plan and billing history</p>
+              </header>
+
+              <div class="set-bill-overview">
+                <div class="set-bill-plan-wrap">
+                  <div class="set-bill-plan">
+                    <div class="set-bill-plan__head">
+                      <h3 class="set-bill-plan__title">Pro Plan</h3>
+                      <span class="set-bill-badge">Active</span>
+                    </div>
+                    <p class="set-bill-plan__renew">Your subscription renews on June 15, 2025.</p>
+                    <div class="set-bill-plan__details">
+                      <div class="set-bill-plan__detail">
+                        <span class="set-bill-plan__label">Price</span>
+                        <span class="set-bill-plan__value">$9.99 / month</span>
+                      </div>
+                      <div class="set-bill-plan__detail">
+                        <span class="set-bill-plan__label">Billing Cycle</span>
+                        <span class="set-bill-plan__value">Monthly</span>
+                      </div>
+                      <div class="set-bill-plan__detail">
+                        <span class="set-bill-plan__label">Payment Method</span>
+                        <span class="set-bill-plan__value">Visa ending in 4242</span>
+                      </div>
+                    </div>
+                    <div class="set-bill-plan__actions">
+                      <button type="button" class="set-btn-connect">Change Plan</button>
+                      <button type="button" class="set-btn-connect">Update Payment</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="set-bill-history">
+                  <h3 class="set-bill-history__title">Billing History</h3>
+                  <div class="set-bill-table-wrap">
+                    <table class="set-bill-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>May 16, 2025</td>
+                          <td>$9.99</td>
+                          <td><span class="set-bill-pill set-bill-pill--paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                          <td>Apr 16, 2025</td>
+                          <td>$9.99</td>
+                          <td><span class="set-bill-pill set-bill-pill--paid">Paid</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <button type="button" class="set-btn-connect set-bill-history__btn">View All Invoices</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="set-card set-bill-compare-card" aria-labelledby="set-bill-compare-title">
+              <header class="set-card__head">
+                <h2 id="set-bill-compare-title" class="set-card__title">Plan Comparison</h2>
+                <p class="set-card__subtitle">Choose the plan that fits your teaching needs</p>
+              </header>
+
+              <div class="set-plan-grid">
+                <article class="set-plan-card">
+                  <h3 class="set-plan-card__name">Free</h3>
+                  <p class="set-plan-card__price"><span class="set-plan-card__amount">$0</span></p>
+                  <ul class="set-plan-card__list">
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      5 Quizzes
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Basic Analytics
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      50 Student Limit
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--no">
+                      <img src="assets/icons/ic_x-mark.svg" alt="" width="16" height="16" />
+                      Custom Branding
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--no">
+                      <img src="assets/icons/ic_x-mark.svg" alt="" width="16" height="16" />
+                      Advanced Question Types
+                    </li>
+                  </ul>
+                  <button type="button" class="set-plan-card__btn set-plan-card__btn--current" disabled>Current Plan</button>
+                </article>
+
+                <article class="set-plan-card set-plan-card--popular">
+                  <span class="set-plan-card__popular">Popular</span>
+                  <h3 class="set-plan-card__name">Pro</h3>
+                  <p class="set-plan-card__price">
+                    <span class="set-plan-card__amount">$9.99</span><span class="set-plan-card__period">/mo</span>
+                  </p>
+                  <ul class="set-plan-card__list">
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Everything in Free
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Unlimited Quizzes
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Advanced Analytics
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      500 Student Limit
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Custom Branding
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Advanced Question Types
+                    </li>
+                  </ul>
+                  <button type="button" class="set-plan-card__btn set-plan-card__btn--primary">Upgrade</button>
+                </article>
+
+                <article class="set-plan-card">
+                  <h3 class="set-plan-card__name">Enterprise</h3>
+                  <p class="set-plan-card__price">
+                    <span class="set-plan-card__amount">$12.99</span><span class="set-plan-card__period">/mo</span>
+                  </p>
+                  <ul class="set-plan-card__list">
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Everything in Pro
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Unlimited Access
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      API Access
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Dedicated Support
+                    </li>
+                    <li class="set-plan-card__item set-plan-card__item--yes">
+                      <img src="assets/icons/ic_check-green.svg" alt="" width="16" height="16" />
+                      Custom Integrations
+                    </li>
+                  </ul>
+                  <button type="button" class="set-plan-card__btn set-plan-card__btn--outline">Contact Sales</button>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <p class="set-help set-help--centered">
+            <img class="set-help__icon" src="assets/icons/ic_help-circle.svg" alt="" width="18" height="18" />
+            <span>
+              Need help with your account settings?
+              <a href="#">Contact Support</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll(".set-tabs__btn");
+        var panels = document.querySelectorAll(".set-panel");
+
+        function activateTab(tab) {
+          var panelId = tab.getAttribute("aria-controls");
+          var target = panelId ? document.getElementById(panelId) : null;
+          if (!target) return;
+
+          tabs.forEach(function (t) {
+            t.classList.remove("set-tabs__btn--active");
+            t.setAttribute("aria-selected", "false");
+          });
+          tab.classList.add("set-tabs__btn--active");
+          tab.setAttribute("aria-selected", "true");
+
+          panels.forEach(function (p) {
+            p.hidden = true;
+          });
+          target.hidden = false;
+
+          var suffix = tab.id && tab.id.indexOf("tab-") === 0 ? tab.id.slice(4) : "";
+          if (suffix) {
+            try {
+              history.replaceState(null, "", "#" + suffix);
+            } catch (e) {}
+          }
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            activateTab(tab);
+          });
+        });
+
+        function openTabFromHash() {
+          var key = window.location.hash.replace(/^#/, "").toLowerCase();
+          if (!key) return;
+          var tab = document.getElementById("tab-" + key);
+          if (tab) activateTab(tab);
+        }
+
+        openTabFromHash();
+        window.addEventListener("hashchange", openTabFromHash);
+      })();
+    </script>
+  </body>
+</html>

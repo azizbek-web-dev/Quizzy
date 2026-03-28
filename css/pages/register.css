@@ -1,0 +1,396 @@
+/**
+ * Register sahifa: chap branding, o‘ngda forma.
+ */
+
+.register-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .register-page {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Chap panel (faqat katta ekran) --- */
+.register-brand {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-bg-hero);
+}
+
+@media (min-width: 900px) {
+  .register-brand {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: var(--space-10) var(--space-6);
+  }
+}
+
+/* Hero bilan bir xil mantiq: yuqori va pastki grid, ustun kengligiga mos */
+.register-brand__patterns {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.register-brand__pattern {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.register-brand__pattern--top {
+  top: 0;
+  height: clamp(120px, 28vw, 290px);
+  background-image: url("../../assets/patterns/pattern-top.svg");
+  opacity: 0.45;
+}
+
+.register-brand__pattern--bottom {
+  bottom: 0;
+  height: clamp(110px, 26vw, 318px);
+  background-image: url("../../assets/patterns/pattern-bottom.svg");
+  opacity: 0.45;
+}
+
+.register-brand__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 60%,
+    rgba(124, 58, 237, 0.2) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.register-brand__logo {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  background: var(--gradient-header);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- O‘ng panel --- */
+.register-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: max(env(safe-area-inset-top, 0px), var(--space-6))
+    max(env(safe-area-inset-right, 0px), var(--space-4))
+    max(env(safe-area-inset-bottom, 0px), var(--space-10))
+    max(env(safe-area-inset-left, 0px), var(--space-4));
+  background-color: var(--color-white);
+}
+
+/* Mobil: kompakt Quizzy (chap branding yashirilganda) */
+.register-panel__mobile-brand {
+  display: block;
+  align-self: center;
+  margin-bottom: var(--space-6);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  line-height: var(--leading-tight);
+  text-decoration: none;
+  background: var(--gradient-header);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.register-panel__mobile-brand:focus-visible {
+  outline: 2px solid #ac63e6;
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 900px) {
+  .register-panel__mobile-brand {
+    display: none;
+  }
+
+  .register-panel {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-10);
+  }
+}
+
+.register-form-wrap {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.register-form__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: #101010;
+}
+
+.register-form__lead {
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: #667085;
+}
+
+/* Ijtimoiy kirish */
+.register-social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.register-social__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: inherit;
+  color: #344054;
+  text-decoration: none;
+  background-color: var(--color-white);
+  border: 1px solid #d0d5dd;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.register-social__btn:hover {
+  background-color: #f9fafb;
+  border-color: #98a2b3;
+}
+
+.register-social__btn:focus-visible {
+  outline: 2px solid #ac63e6;
+  outline-offset: 2px;
+}
+
+.register-social__btn img {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* OR ajratgich */
+.register-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  color: #667085;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.register-divider::before,
+.register-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e4e7ec;
+}
+
+/* Maydonlar */
+.register-field {
+  margin-bottom: var(--space-5);
+}
+
+.register-field--half {
+  margin-bottom: 0;
+}
+
+.register-fields-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .register-fields-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.register-field__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: #344054;
+}
+
+.register-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  min-height: 2.75rem;
+  background-color: var(--color-white);
+  border: 1px solid #d0d5dd;
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.register-input-wrap:focus-within {
+  border-color: #ac63e6;
+  box-shadow: 0 0 0 3px rgba(172, 99, 230, 0.15);
+}
+
+.register-input-wrap__icon {
+  display: flex;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.register-input-wrap__icon img {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.register-input-wrap__at {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  color: #98a2b3;
+  opacity: 0.9;
+}
+
+.register-input-wrap input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  font-family: inherit;
+  color: #101010;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.register-input-wrap input::placeholder {
+  color: #98a2b3;
+}
+
+.register-submit {
+  width: 100%;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-6);
+  min-height: 3rem;
+  padding: 0 var(--space-6);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  color: var(--color-white);
+  background-color: #ac63e6;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.register-submit:hover {
+  background-color: #9823f5;
+}
+
+.register-submit:active {
+  transform: scale(0.99);
+}
+
+.register-submit:focus-visible {
+  outline: 2px solid #ac63e6;
+  outline-offset: 3px;
+}
+
+.register-footer-note {
+  margin: 0;
+  font-size: var(--text-sm);
+  text-align: center;
+  color: #667085;
+}
+
+.register-footer-note a {
+  font-weight: var(--font-weight-semibold);
+  color: #ac63e6;
+  text-decoration: none;
+}
+
+.register-footer-note a:hover {
+  text-decoration: underline;
+}
+
+.register-footer-note a:focus-visible {
+  outline: 2px solid #ac63e6;
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Mobil moslashuv (login / register) --- */
+@media (max-width: 899px) {
+  .register-input-wrap input {
+    font-size: 1rem; /* iOS: fokusda avtomatik zoom bo‘lmasin */
+  }
+
+  .register-input-wrap {
+    min-height: 2.875rem;
+  }
+
+  .register-social__btn {
+    min-height: 2.875rem;
+  }
+
+  .register-submit {
+    min-height: 3rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .register-form__title {
+    font-size: clamp(1.375rem, 4.5vw, 1.5rem);
+  }
+}
+
+@media (max-width: 359px) {
+  .register-social {
+    grid-template-columns: 1fr;
+  }
+}

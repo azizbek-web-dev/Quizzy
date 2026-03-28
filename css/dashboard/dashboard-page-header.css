@@ -1,0 +1,73 @@
+/**
+ * Dashboard — sahifa sarlavhasi va asosiy CTA.
+ */
+
+.dash-page-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .dash-page-head {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.dash-page-head__text {
+  min-width: 0;
+}
+
+.dash-page-head__title {
+  margin: 0 0 var(--space-1);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.dash-page-head__greet {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--dash-text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 36rem;
+}
+
+.dash-page-head__cta {
+  flex-shrink: 0;
+}
+
+.dash-page-head__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--dash-accent);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.dash-page-head__btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.dash-page-head__btn-primary:active {
+  transform: scale(0.98);
+}
+
+.dash-page-head__btn-primary svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}

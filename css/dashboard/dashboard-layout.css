@@ -1,0 +1,17 @@
+/**
+ * Dashboard — o‘rta qator: Events + Top Students.
+ */
+
+.dash-row-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .dash-row-split {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}

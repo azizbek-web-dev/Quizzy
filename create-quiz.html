@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Create New Quiz — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/create-quiz/create-quiz.css" />
+  </head>
+  <body>
+    <div class="cq-page">
+      <div class="cq-page__inner">
+        <header class="cq-header">
+          <div class="cq-header__lead">
+            <a class="cq-back" href="dashboard.html" aria-label="Dashboardga qaytish">
+              <img src="assets/icons/material-symbols_chevron-left-rounded.svg" alt="" width="20" height="20" />
+            </a>
+            <div class="cq-header__titles">
+              <h1 class="cq-header__title">Create New Quiz</h1>
+              <p class="cq-header__subtitle">
+                Add questions, set answers and configure quiz settings
+              </p>
+            </div>
+          </div>
+          <div class="cq-header__actions">
+            <button type="button" class="cq-btn cq-btn--ghost">Save Draft</button>
+            <button type="button" class="cq-btn cq-btn--accent">Preview</button>
+          </div>
+        </header>
+
+        <main class="cq-grid" id="create-quiz-step-1">
+          <section class="cq-card" aria-labelledby="cq-details-title">
+            <div class="cq-card__head">
+              <h2 id="cq-details-title" class="cq-card__title">Quiz Details</h2>
+              <p class="cq-card__desc">Basic information about your quiz.</p>
+            </div>
+
+            <div class="cq-field">
+              <label class="cq-label" for="cq-quiz-title">Quiz Title</label>
+              <input
+                class="cq-input"
+                id="cq-quiz-title"
+                name="title"
+                type="text"
+                value="Introduction to Environmental Science"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="cq-field">
+              <label class="cq-label" for="cq-description">Description</label>
+              <textarea
+                class="cq-textarea"
+                id="cq-description"
+                name="description"
+                rows="4"
+              >Test your knowledge about environmental science basics, including renewable energy, ecosystems, and sustainability.</textarea>
+            </div>
+
+            <div class="cq-row-2">
+              <div class="cq-field">
+                <label class="cq-label" for="cq-category">Category</label>
+                <div class="cq-select-wrap">
+                  <select class="cq-select" id="cq-category" name="category">
+                    <option value="science" selected>Science</option>
+                    <option value="math">Mathematics</option>
+                    <option value="history">History</option>
+                    <option value="language">Language</option>
+                  </select>
+                  <img
+                    class="cq-select-wrap__chevron"
+                    src="assets/icons/tabler_chevron-down.svg"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+              <div class="cq-field">
+                <label class="cq-label" for="cq-difficulty">Difficulty Level</label>
+                <div class="cq-select-wrap">
+                  <select class="cq-select" id="cq-difficulty" name="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                  <img
+                    class="cq-select-wrap__chevron"
+                    src="assets/icons/tabler_chevron-down.svg"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="cq-card" aria-labelledby="cq-settings-title">
+            <div class="cq-card__head">
+              <h2 id="cq-settings-title" class="cq-card__title">Quiz Settings</h2>
+              <p class="cq-card__desc">Configure how your quiz works.</p>
+            </div>
+
+            <div class="cq-field">
+              <label class="cq-label" for="cq-time">Time Limit</label>
+              <div class="cq-affix">
+                <span class="cq-affix__icon" aria-hidden="true">
+                  <img src="assets/icons/tabler_clock.svg" alt="" width="18" height="18" />
+                </span>
+                <input
+                  class="cq-affix__input"
+                  id="cq-time"
+                  name="time_limit"
+                  type="number"
+                  min="1"
+                  value="15"
+                  inputmode="numeric"
+                />
+                <span class="cq-affix__suffix">minutes</span>
+              </div>
+            </div>
+
+            <div class="cq-field">
+              <label class="cq-label" for="cq-passing">Passing Score</label>
+              <div class="cq-affix">
+                <span class="cq-affix__icon" aria-hidden="true">
+                  <img src="assets/icons/lets-icons_check-fill.svg" alt="" width="18" height="18" />
+                </span>
+                <input
+                  class="cq-affix__input"
+                  id="cq-passing"
+                  name="passing_score"
+                  type="number"
+                  min="0"
+                  max="100"
+                  value="70"
+                  inputmode="numeric"
+                />
+                <span class="cq-affix__suffix">%</span>
+              </div>
+            </div>
+
+            <div class="cq-setting-row">
+              <div class="cq-setting-row__text">
+                <p class="cq-setting-row__name">Randomize Questions</p>
+                <p class="cq-setting-row__hint">Show questions in random order.</p>
+              </div>
+              <label class="cq-switch">
+                <input
+                  class="cq-switch__input"
+                  type="checkbox"
+                  name="randomize"
+                  checked
+                  aria-label="Randomize Questions"
+                />
+                <span class="cq-switch__slider" aria-hidden="true"></span>
+              </label>
+            </div>
+
+            <div class="cq-setting-row">
+              <div class="cq-setting-row__text">
+                <p class="cq-setting-row__name">Immediate Results</p>
+                <p class="cq-setting-row__hint">Show results for each question.</p>
+              </div>
+              <label class="cq-switch">
+                <input
+                  class="cq-switch__input"
+                  type="checkbox"
+                  name="immediate_results"
+                  checked
+                  aria-label="Immediate Results"
+                />
+                <span class="cq-switch__slider" aria-hidden="true"></span>
+              </label>
+            </div>
+          </section>
+        </main>
+
+        <footer class="cq-footer">
+          <button type="button" class="cq-btn cq-btn--footer cq-btn--footer-prev">
+            <img
+              src="assets/icons/material-symbols_chevron-left-rounded.svg"
+              alt=""
+              width="20"
+              height="20"
+            />
+            Prev
+          </button>
+          <a href="create-quiz-2.html" class="cq-btn cq-btn--footer cq-btn--footer-next">
+            Next
+            <img src="assets/icons/material-symbols_chevron-right-rounded.svg" alt="" width="18" height="18" />
+          </a>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

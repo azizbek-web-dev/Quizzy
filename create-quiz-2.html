@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Savollar — Create New Quiz — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/create-quiz/create-quiz.css" />
+    <link rel="stylesheet" href="css/create-quiz/create-quiz-questions.css" />
+  </head>
+  <body>
+    <div class="cq-page">
+      <div class="cq-page__inner">
+        <header class="cq-header">
+          <div class="cq-header__lead">
+            <a class="cq-back" href="create-quiz.html" aria-label="Oldingi qadamga qaytish">
+              <img src="assets/icons/material-symbols_chevron-left-rounded.svg" alt="" width="20" height="20" />
+            </a>
+            <div class="cq-header__titles">
+              <h1 class="cq-header__title">Create New Quiz</h1>
+              <p class="cq-header__subtitle">
+                Add questions, set answers and configure quiz settings
+              </p>
+            </div>
+          </div>
+          <div class="cq-header__actions">
+            <button type="button" class="cq-btn cq-btn--ghost">Save Draft</button>
+            <button type="button" class="cq-btn cq-btn--accent">Preview</button>
+          </div>
+        </header>
+
+        <main class="cq-main--questions" id="create-quiz-step-2">
+          <section class="cq-questions-card" aria-labelledby="cq-questions-heading">
+            <div class="cq-card__head">
+              <h2 id="cq-questions-heading" class="cq-card__title">Quiz Questions</h2>
+              <p class="cq-card__desc">Create and manage your quiz questions</p>
+            </div>
+
+            <div class="cq-question-block">
+              <div class="cq-q-toolbar">
+                <h3 class="cq-q-toolbar__title">Question 1</h3>
+                <div class="cq-q-points">
+                  <label class="cq-q-points__label" for="cq-q1-points">Points:</label>
+                  <input
+                    class="cq-q-points__input"
+                    id="cq-q1-points"
+                    name="q1_points"
+                    type="number"
+                    min="0"
+                    value="10"
+                    inputmode="numeric"
+                  />
+                </div>
+                <div class="cq-q-type-wrap">
+                  <label class="visually-hidden" for="cq-q1-type">Savol turi</label>
+                  <select class="cq-q-type" id="cq-q1-type" name="q1_type">
+                    <option value="multiple" selected>Multiple Choice</option>
+                    <option value="truefalse">True / False</option>
+                    <option value="short">Short Answer</option>
+                  </select>
+                  <img
+                    class="cq-q-type-wrap__chevron"
+                    src="assets/icons/tabler_chevron-down.svg"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+                <button type="button" class="cq-q-delete" aria-label="Savolni o‘chirish">
+                  <img src="assets/icons/gg_trash.svg" alt="" width="22" height="22" />
+                </button>
+              </div>
+
+              <div class="cq-field">
+                <label class="cq-label" for="cq-q1-text">Question Text</label>
+                <textarea
+                  class="cq-textarea"
+                  id="cq-q1-text"
+                  name="q1_text"
+                  rows="4"
+                >Which of the following is NOT a renewable energy source?</textarea>
+              </div>
+
+              <fieldset class="cq-options">
+                <legend class="cq-options__legend">Answer Options</legend>
+
+                <label class="cq-option">
+                  <input class="cq-option__input visually-hidden" type="radio" name="q1_correct" value="0" />
+                  <span class="cq-option__row">
+                    <span class="cq-option__radio" aria-hidden="true"></span>
+                    <input class="cq-option__field" type="text" name="q1_opt0" value="Solar Power" aria-label="Variant 1" />
+                  </span>
+                </label>
+
+                <label class="cq-option">
+                  <input class="cq-option__input visually-hidden" type="radio" name="q1_correct" value="1" />
+                  <span class="cq-option__row">
+                    <span class="cq-option__radio" aria-hidden="true"></span>
+                    <input class="cq-option__field" type="text" name="q1_opt1" value="Wind Power" aria-label="Variant 2" />
+                  </span>
+                </label>
+
+                <label class="cq-option">
+                  <input
+                    class="cq-option__input visually-hidden"
+                    type="radio"
+                    name="q1_correct"
+                    value="2"
+                    checked
+                  />
+                  <span class="cq-option__row">
+                    <span class="cq-option__radio" aria-hidden="true"></span>
+                    <input class="cq-option__field" type="text" name="q1_opt2" value="Natural Gas" aria-label="Variant 3" />
+                  </span>
+                </label>
+
+                <label class="cq-option">
+                  <input class="cq-option__input visually-hidden" type="radio" name="q1_correct" value="3" />
+                  <span class="cq-option__row">
+                    <span class="cq-option__radio" aria-hidden="true"></span>
+                    <input
+                      class="cq-option__field"
+                      type="text"
+                      name="q1_opt3"
+                      value="Hydroelectric Power"
+                      aria-label="Variant 4"
+                    />
+                  </span>
+                </label>
+              </fieldset>
+            </div>
+
+            <button type="button" class="cq-add-question">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+              Add Question
+            </button>
+          </section>
+        </main>
+
+        <footer class="cq-footer">
+          <a href="create-quiz.html" class="cq-btn cq-btn--footer cq-btn--footer-prev">
+            <img
+              src="assets/icons/material-symbols_chevron-left-rounded.svg"
+              alt=""
+              width="20"
+              height="20"
+            />
+            Prev
+          </a>
+          <button type="button" class="cq-btn cq-btn--footer cq-btn--footer-publish">
+            Preview &amp; Publish
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

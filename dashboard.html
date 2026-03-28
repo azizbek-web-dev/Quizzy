@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Dashboard — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-shell.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-sidebar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-toolbar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-page-header.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-stats.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-layout.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-events.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-top-students.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-recent-quizzes.css" />
+  </head>
+  <body>
+    <div class="dash-app">
+      <input
+        type="checkbox"
+        id="dash-sidebar-toggle"
+        class="visually-hidden"
+        aria-hidden="true"
+      />
+
+      <aside class="dash-sidebar" aria-label="Dashboard navigatsiyasi">
+        <a class="dash-sidebar__brand" href="index.html">
+          <span class="dash-sidebar__logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient
+                  id="dashLogoMarkGrad"
+                  x1="6"
+                  y1="4"
+                  x2="26"
+                  y2="28"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#22c55e" />
+                  <stop offset="0.5" stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                stroke="url(#dashLogoMarkGrad)"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span class="dash-sidebar__logo-text">
+            <span class="dash-sidebar__logo-quiz">Quiz</span><span class="dash-sidebar__logo-zy">zy</span>
+          </span>
+        </a>
+
+        <div class="dash-sidebar__search" role="search">
+          <img
+            class="dash-sidebar__search-icon"
+            src="assets/icons/ic_search.svg"
+            alt=""
+            width="18"
+            height="18"
+          />
+          <input
+            class="dash-sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Qidiruv"
+          />
+        </div>
+
+        <nav class="dash-sidebar__nav" aria-label="Asosiy">
+          <a class="dash-sidebar__link dash-sidebar__link--active" href="dashboard.html" aria-current="page">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_dashboard.svg" alt="" width="22" height="22" />
+            Dashboard
+          </a>
+          <a class="dash-sidebar__link" href="quizzes.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/lucide_book-open.svg" alt="" width="22" height="22" />
+            Quizzes
+          </a>
+          <a class="dash-sidebar__link" href="#">
+            <img class="dash-sidebar__link-icon" src="assets/icons/uil_calendar.svg" alt="" width="22" height="22" />
+            Events
+          </a>
+          <a class="dash-sidebar__link" href="students.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/tabler_users.svg" alt="" width="22" height="22" />
+            Students
+          </a>
+        </nav>
+
+        <p class="dash-sidebar__section-label">Manage</p>
+        <nav class="dash-sidebar__nav dash-sidebar__footer-nav" aria-label="Boshqaruv">
+          <a class="dash-sidebar__link" href="settings.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_outline-settings.svg" alt="" width="22" height="22" />
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <label class="dash-app__sidebar-backdrop" for="dash-sidebar-toggle" tabindex="-1" aria-hidden="true"></label>
+
+      <div class="dash-app__main">
+        <header class="dash-toolbar">
+          <label class="dash-toolbar__menu-btn" for="dash-sidebar-toggle">
+            <span class="visually-hidden">Yon panelni ochish yoki yopish</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+            </svg>
+          </label>
+
+          <a class="dash-toolbar__brand" href="index.html">
+            <span class="dash-toolbar__logo-mark" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient
+                    id="dashToolbarLogoGrad"
+                    x1="6"
+                    y1="4"
+                    x2="26"
+                    y2="28"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#22c55e" />
+                    <stop offset="0.5" stop-color="#7c3aed" />
+                    <stop offset="1" stop-color="#f97316" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                  stroke="url(#dashToolbarLogoGrad)"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="dash-toolbar__logo-text">
+              <span class="dash-toolbar__logo-quiz">Quiz</span><span class="dash-toolbar__logo-zy">zy</span>
+            </span>
+          </a>
+
+          <div class="dash-toolbar__search" role="search">
+            <img
+              class="dash-toolbar__search-icon"
+              src="assets/icons/ic_search.svg"
+              alt=""
+              width="18"
+              height="18"
+            />
+            <input
+              class="dash-toolbar__search-input"
+              type="search"
+              placeholder="Search..."
+              aria-label="Qidiruv"
+            />
+          </div>
+
+          <div class="dash-toolbar__actions">
+            <a class="dash-toolbar__btn-create" href="create-quiz.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+              <span>Create Quiz</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="dash-app__content">
+          <header class="dash-page-head">
+            <div class="dash-page-head__text">
+              <h1 class="dash-page-head__title">Dashboard</h1>
+              <p class="dash-page-head__greet">
+                Welcome back, Sarah! Here&apos;s what&apos;s happening with your quizzes
+              </p>
+            </div>
+            <div class="dash-page-head__cta">
+              <a class="dash-page-head__btn-primary" href="create-quiz.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+                </svg>
+                Create New Quiz
+              </a>
+            </div>
+          </header>
+
+          <section class="dash-stats" aria-label="Statistika">
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Total Quizzes</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--purple" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+                      stroke="#a78bfa"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      stroke="#a78bfa"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path d="M12 7v6M9 10h6" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">2,543</p>
+                <span class="dash-stat-card__trend dash-stat-card__trend--up">+12.5%</span>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Active Events</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--green" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="#22c55e" stroke-width="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+                    <path d="m9 16 2 2 4-4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">2,543</p>
+                <span class="dash-stat-card__trend dash-stat-card__trend--up">+12.5%</span>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Students</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--blue" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="9" cy="7" r="4" stroke="#3b82f6" stroke-width="2" />
+                    <path
+                      d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">2,543</p>
+                <span class="dash-stat-card__trend dash-stat-card__trend--up">+12.5%</span>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Avg. Completion</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--orange" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 20V10M12 20V4M20 20v-6" stroke="#f97316" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">2,543</p>
+                <span class="dash-stat-card__trend dash-stat-card__trend--down">-12.5%</span>
+              </div>
+            </article>
+          </section>
+
+          <div class="dash-row-split">
+            <section class="dash-section dash-section--events" aria-labelledby="dash-events-title">
+              <div class="dash-section__head">
+                <h2 id="dash-events-title" class="dash-section__title">Recent Events</h2>
+                <p class="dash-section__subtitle">Manage your upcoming and active quiz events</p>
+              </div>
+              <div class="dash-events">
+                <article class="dash-event-card">
+                  <div class="dash-event-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                  </div>
+                  <div class="dash-event-card__body">
+                    <h3 class="dash-event-card__title">Science Mid-term Quiz</h3>
+                    <div class="dash-event-card__meta">
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M12 7v5l3 2" stroke-linecap="round" />
+                        </svg>
+                        Today, 2:30 PM
+                      </span>
+                      <span class="dash-event-card__meta-item" aria-hidden="true">·</span>
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        32 participants
+                      </span>
+                    </div>
+                  </div>
+                  <div class="dash-event-card__action">
+                    <button type="button" class="dash-event-card__btn dash-event-card__btn--primary">View Live</button>
+                  </div>
+                </article>
+
+                <article class="dash-event-card">
+                  <div class="dash-event-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                  </div>
+                  <div class="dash-event-card__body">
+                    <h3 class="dash-event-card__title">Mathematics Weekly Test</h3>
+                    <div class="dash-event-card__meta">
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M12 7v5l3 2" stroke-linecap="round" />
+                        </svg>
+                        Tomorrow, 10:00 AM
+                      </span>
+                      <span class="dash-event-card__meta-item" aria-hidden="true">·</span>
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        28 participants
+                      </span>
+                    </div>
+                  </div>
+                  <div class="dash-event-card__action">
+                    <button type="button" class="dash-event-card__btn dash-event-card__btn--outline">Manage</button>
+                  </div>
+                </article>
+
+                <article class="dash-event-card">
+                  <div class="dash-event-card__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+                      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                  </div>
+                  <div class="dash-event-card__body">
+                    <h3 class="dash-event-card__title">History Final Exam</h3>
+                    <div class="dash-event-card__meta">
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M12 7v5l3 2" stroke-linecap="round" />
+                        </svg>
+                        May 20, 9:00 AM
+                      </span>
+                      <span class="dash-event-card__meta-item" aria-hidden="true">·</span>
+                      <span class="dash-event-card__meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        45 participants
+                      </span>
+                    </div>
+                  </div>
+                  <div class="dash-event-card__action">
+                    <button type="button" class="dash-event-card__btn dash-event-card__btn--outline">Manage</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="dash-section dash-top-students" aria-labelledby="dash-top-students-title">
+              <div class="dash-section__head">
+                <h2 id="dash-top-students-title" class="dash-section__title">Top Students</h2>
+                <p class="dash-section__subtitle">Students with highest quiz scores</p>
+              </div>
+              <ol class="dash-top-students__list">
+                <li class="dash-top-student">
+                  <span class="dash-top-student__rank">1</span>
+                  <img
+                    class="dash-top-student__avatar"
+                    src="https://i.pravatar.cc/80?img=12"
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <div class="dash-top-student__info">
+                    <p class="dash-top-student__name">Alex John</p>
+                    <p class="dash-top-student__subject">Science</p>
+                  </div>
+                  <div class="dash-top-student__score">
+                    <img class="dash-top-student__score-icon" src="assets/icons/tabler_trophy.svg" alt="" width="18" height="18" />
+                    <span class="dash-top-student__score-value">950</span>
+                  </div>
+                </li>
+                <li class="dash-top-student">
+                  <span class="dash-top-student__rank">2</span>
+                  <img
+                    class="dash-top-student__avatar"
+                    src="https://i.pravatar.cc/80?img=5"
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <div class="dash-top-student__info">
+                    <p class="dash-top-student__name">Emma Watson</p>
+                    <p class="dash-top-student__subject">Mathematics</p>
+                  </div>
+                  <div class="dash-top-student__score">
+                    <img class="dash-top-student__score-icon" src="assets/icons/tabler_trophy.svg" alt="" width="18" height="18" />
+                    <span class="dash-top-student__score-value">920</span>
+                  </div>
+                </li>
+                <li class="dash-top-student">
+                  <span class="dash-top-student__rank">3</span>
+                  <img
+                    class="dash-top-student__avatar"
+                    src="https://i.pravatar.cc/80?img=33"
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <div class="dash-top-student__info">
+                    <p class="dash-top-student__name">Michael Clark</p>
+                    <p class="dash-top-student__subject">Physics</p>
+                  </div>
+                  <div class="dash-top-student__score">
+                    <img class="dash-top-student__score-icon" src="assets/icons/tabler_trophy.svg" alt="" width="18" height="18" />
+                    <span class="dash-top-student__score-value">980</span>
+                  </div>
+                </li>
+                <li class="dash-top-student">
+                  <span class="dash-top-student__rank">4</span>
+                  <img
+                    class="dash-top-student__avatar"
+                    src="https://i.pravatar.cc/80?img=47"
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <div class="dash-top-student__info">
+                    <p class="dash-top-student__name">Sophia Green</p>
+                    <p class="dash-top-student__subject">English</p>
+                  </div>
+                  <div class="dash-top-student__score">
+                    <img class="dash-top-student__score-icon" src="assets/icons/tabler_trophy.svg" alt="" width="18" height="18" />
+                    <span class="dash-top-student__score-value">890</span>
+                  </div>
+                </li>
+                <li class="dash-top-student">
+                  <span class="dash-top-student__rank">5</span>
+                  <img
+                    class="dash-top-student__avatar"
+                    src="https://i.pravatar.cc/80?img=9"
+                    alt=""
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  />
+                  <div class="dash-top-student__info">
+                    <p class="dash-top-student__name">Lucia Wilde</p>
+                    <p class="dash-top-student__subject">Science</p>
+                  </div>
+                  <div class="dash-top-student__score">
+                    <img class="dash-top-student__score-icon" src="assets/icons/tabler_trophy.svg" alt="" width="18" height="18" />
+                    <span class="dash-top-student__score-value">870</span>
+                  </div>
+                </li>
+              </ol>
+            </section>
+          </div>
+
+          <section class="dash-section" aria-labelledby="dash-quizzes-title">
+            <div class="dash-section__head">
+              <h2 id="dash-quizzes-title" class="dash-section__title">Recent Quizzes</h2>
+              <p class="dash-section__subtitle">Your recently created quizzes</p>
+            </div>
+            <div class="dash-quiz-grid">
+              <article class="dash-quiz-card">
+                <div class="dash-quiz-card__head">
+                  <h3 class="dash-quiz-card__title">Introduction to Biology</h3>
+                  <svg class="dash-quiz-card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m10 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="dash-quiz-card__stats">
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/lucide_book-open.svg" alt="" width="16" height="16" />
+                    15 questions
+                  </span>
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/tabler_users.svg" alt="" width="16" height="16" />
+                    28 completions
+                  </span>
+                </div>
+                <div>
+                  <div class="dash-quiz-card__progress-label">
+                    <span>Completion Rate</span>
+                    <span class="dash-quiz-card__progress-pct">75%</span>
+                  </div>
+                  <div class="dash-quiz-card__bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="dash-quiz-card__bar-fill" style="width: 75%"></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dash-quiz-card">
+                <div class="dash-quiz-card__head">
+                  <h3 class="dash-quiz-card__title">Introduction to Biology</h3>
+                  <svg class="dash-quiz-card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m10 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="dash-quiz-card__stats">
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/lucide_book-open.svg" alt="" width="16" height="16" />
+                    15 questions
+                  </span>
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/tabler_users.svg" alt="" width="16" height="16" />
+                    28 completions
+                  </span>
+                </div>
+                <div>
+                  <div class="dash-quiz-card__progress-label">
+                    <span>Completion Rate</span>
+                    <span class="dash-quiz-card__progress-pct">40%</span>
+                  </div>
+                  <div class="dash-quiz-card__bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                    <div class="dash-quiz-card__bar-fill" style="width: 40%"></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="dash-quiz-card">
+                <div class="dash-quiz-card__head">
+                  <h3 class="dash-quiz-card__title">Introduction to Biology</h3>
+                  <svg class="dash-quiz-card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m10 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="dash-quiz-card__stats">
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/lucide_book-open.svg" alt="" width="16" height="16" />
+                    15 questions
+                  </span>
+                  <span class="dash-quiz-card__stat">
+                    <img class="dash-quiz-card__stat-icon" src="assets/icons/tabler_users.svg" alt="" width="16" height="16" />
+                    28 completions
+                  </span>
+                </div>
+                <div>
+                  <div class="dash-quiz-card__progress-label">
+                    <span>Completion Rate</span>
+                    <span class="dash-quiz-card__progress-pct">90%</span>
+                  </div>
+                  <div class="dash-quiz-card__bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                    <div class="dash-quiz-card__bar-fill" style="width: 90%"></div>
+                  </div>
+                </div>
+              </article>
+
+              <a class="dash-quiz-card dash-quiz-card--cta" href="create-quiz.html">
+                <span class="dash-quiz-card__cta-icon-wrap" aria-hidden="true">
+                  <img src="assets/icons/ic_round-plus.svg" alt="" width="24" height="24" />
+                </span>
+                <span class="dash-quiz-card__cta-title">Create New Quiz</span>
+                <span class="dash-quiz-card__cta-desc">Add questions, set time limits and more</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+/**
+ * Dashboard — faqat dashboard sahifasi uchun qo‘shimcha tokenlar.
+ */
+
+:root {
+  --dash-bg-page: #0d0d0d;
+  --dash-bg-sidebar: #121212;
+  --dash-bg-card: #181818;
+  --dash-bg-elevated: #1a1a1a;
+  --dash-border: #2a2a2a;
+  --dash-text-muted: #9ca3af;
+  --dash-text-subtle: #888888;
+  --dash-radius-card: 12px;
+  --dash-radius-lg: 16px;
+  --dash-sidebar-width: 17.5rem;
+  --dash-accent: var(--color-purple);
+  --dash-success: #22c55e;
+  --dash-danger: #ef4444;
+  --dash-score: var(--color-orange);
+}

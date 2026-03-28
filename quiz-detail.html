@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Introduction to Biology — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-shell.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-sidebar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-toolbar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-stats.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-quiz-detail.css" />
+  </head>
+  <body>
+    <div class="dash-app">
+      <input
+        type="checkbox"
+        id="dash-sidebar-toggle"
+        class="visually-hidden"
+        aria-hidden="true"
+      />
+
+      <aside class="dash-sidebar" aria-label="Dashboard navigatsiyasi">
+        <a class="dash-sidebar__brand" href="index.html">
+          <span class="dash-sidebar__logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient
+                  id="dashLogoMarkGrad"
+                  x1="6"
+                  y1="4"
+                  x2="26"
+                  y2="28"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#22c55e" />
+                  <stop offset="0.5" stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                stroke="url(#dashLogoMarkGrad)"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span class="dash-sidebar__logo-text">
+            <span class="dash-sidebar__logo-quiz">Quiz</span><span class="dash-sidebar__logo-zy">zy</span>
+          </span>
+        </a>
+
+        <div class="dash-sidebar__search" role="search">
+          <img
+            class="dash-sidebar__search-icon"
+            src="assets/icons/ic_search.svg"
+            alt=""
+            width="18"
+            height="18"
+          />
+          <input
+            class="dash-sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Qidiruv"
+          />
+        </div>
+
+        <nav class="dash-sidebar__nav" aria-label="Asosiy">
+          <a class="dash-sidebar__link" href="dashboard.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_dashboard.svg" alt="" width="22" height="22" />
+            Dashboard
+          </a>
+          <a class="dash-sidebar__link dash-sidebar__link--active" href="quizzes.html" aria-current="page">
+            <img class="dash-sidebar__link-icon" src="assets/icons/lucide_book-open.svg" alt="" width="22" height="22" />
+            Quizzes
+          </a>
+          <a class="dash-sidebar__link" href="#">
+            <img class="dash-sidebar__link-icon" src="assets/icons/uil_calendar.svg" alt="" width="22" height="22" />
+            Events
+          </a>
+          <a class="dash-sidebar__link" href="students.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/tabler_users.svg" alt="" width="22" height="22" />
+            Students
+          </a>
+        </nav>
+
+        <p class="dash-sidebar__section-label">Manage</p>
+        <nav class="dash-sidebar__nav dash-sidebar__footer-nav" aria-label="Boshqaruv">
+          <a class="dash-sidebar__link" href="settings.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_outline-settings.svg" alt="" width="22" height="22" />
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <label class="dash-app__sidebar-backdrop" for="dash-sidebar-toggle" tabindex="-1" aria-hidden="true"></label>
+
+      <div class="dash-app__main">
+        <header class="dash-toolbar">
+          <label class="dash-toolbar__menu-btn" for="dash-sidebar-toggle">
+            <span class="visually-hidden">Yon panelni ochish yoki yopish</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+            </svg>
+          </label>
+
+          <a class="dash-toolbar__brand" href="index.html">
+            <span class="dash-toolbar__logo-mark" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient
+                    id="dashToolbarLogoGrad"
+                    x1="6"
+                    y1="4"
+                    x2="26"
+                    y2="28"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#22c55e" />
+                    <stop offset="0.5" stop-color="#7c3aed" />
+                    <stop offset="1" stop-color="#f97316" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                  stroke="url(#dashToolbarLogoGrad)"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="dash-toolbar__logo-text">
+              <span class="dash-toolbar__logo-quiz">Quiz</span><span class="dash-toolbar__logo-zy">zy</span>
+            </span>
+          </a>
+
+          <div class="dash-toolbar__search" role="search">
+            <img
+              class="dash-toolbar__search-icon"
+              src="assets/icons/ic_search.svg"
+              alt=""
+              width="18"
+              height="18"
+            />
+            <input
+              class="dash-toolbar__search-input"
+              type="search"
+              placeholder="Search..."
+              aria-label="Qidiruv"
+            />
+          </div>
+
+          <div class="dash-toolbar__actions">
+            <a class="dash-toolbar__btn-create dash-toolbar__btn-create--solid" href="create-quiz.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+              <span>Create Quiz</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="dash-app__content">
+          <header class="qd-head">
+            <div class="qd-head__lead">
+              <a class="qd-head__back" href="quizzes.html" aria-label="Quizlar ro‘yxatiga qaytish">
+                <img src="assets/icons/material-symbols_chevron-left-rounded.svg" alt="" width="20" height="20" />
+              </a>
+              <div class="qd-head__text">
+                <h1 class="qd-head__title">Introduction to Biology</h1>
+                <p class="qd-head__desc">Basic concepts of biology for beginners</p>
+              </div>
+            </div>
+            <div class="qd-head__actions">
+              <button type="button" class="qd-btn qd-btn--ghost">Edit</button>
+              <a class="qd-btn qd-btn--ghost" href="share-quiz.html">Share</a>
+              <a class="qd-btn qd-btn--primary" href="quiz-play.html">Preview</a>
+            </div>
+          </header>
+
+          <section class="dash-stats qd-stats" aria-label="Quiz statistikasi">
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Total Completions</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--purple" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+                      stroke="#a78bfa"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      stroke="#a78bfa"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">28</p>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Completion Time</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--green" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="#22c55e" stroke-width="2" />
+                    <path d="M12 7v5l3 2" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">12:45</p>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Average Score</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--blue" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="9" cy="7" r="4" stroke="#3b82f6" stroke-width="2" />
+                    <path
+                      d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">78.5%</p>
+              </div>
+            </article>
+
+            <article class="dash-stat-card">
+              <div class="dash-stat-card__top">
+                <p class="dash-stat-card__label">Top Score</p>
+                <div class="dash-stat-card__icon-wrap dash-stat-card__icon-wrap--orange" aria-hidden="true">
+                  <svg class="dash-stat-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 20V10M12 20V4M20 20v-6" stroke="#f97316" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dash-stat-card__bottom">
+                <p class="dash-stat-card__value">95%</p>
+              </div>
+            </article>
+          </section>
+
+          <div class="qd-split">
+            <section class="qd-card" aria-labelledby="qd-completions-title">
+              <div class="qd-card__head">
+                <h2 id="qd-completions-title" class="qd-card__title">Recent Completions</h2>
+                <a class="qd-card__link" href="#">View All Results</a>
+              </div>
+              <div class="qd-table-wrap">
+                <table class="qd-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Student Name</th>
+                      <th scope="col">Score</th>
+                      <th scope="col">Time Spent</th>
+                      <th scope="col">Completed</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Alex Johnson</td>
+                      <td>85%</td>
+                      <td>14:20</td>
+                      <td>2 hours ago</td>
+                    </tr>
+                    <tr>
+                      <td>Emma Williams</td>
+                      <td>92%</td>
+                      <td>11:05</td>
+                      <td>5 hours ago</td>
+                    </tr>
+                    <tr>
+                      <td>Michael Chen</td>
+                      <td>78%</td>
+                      <td>18:42</td>
+                      <td>Yesterday</td>
+                    </tr>
+                    <tr>
+                      <td>Sophia Martinez</td>
+                      <td>95%</td>
+                      <td>10:15</td>
+                      <td>Yesterday</td>
+                    </tr>
+                    <tr>
+                      <td>James Wilson</td>
+                      <td>71%</td>
+                      <td>16:30</td>
+                      <td>2 days ago</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="qd-card" aria-labelledby="qd-perf-title">
+              <div class="qd-card__head">
+                <h2 id="qd-perf-title" class="qd-card__title">Question Performance</h2>
+              </div>
+              <ul class="qd-perf-list">
+                <li class="qd-perf-item">
+                  <p class="qd-perf-item__q">What is the basic unit of life in all living organisms?</p>
+                  <div class="qd-perf-item__row">
+                    <div class="qd-perf-item__bar" role="presentation">
+                      <span class="qd-perf-item__bar-fill" style="width: 92%"></span>
+                    </div>
+                    <span class="qd-perf-item__pct">92%</span>
+                  </div>
+                </li>
+                <li class="qd-perf-item">
+                  <p class="qd-perf-item__q">Which organelle is known as the powerhouse of the cell?</p>
+                  <div class="qd-perf-item__row">
+                    <div class="qd-perf-item__bar" role="presentation">
+                      <span class="qd-perf-item__bar-fill" style="width: 92%"></span>
+                    </div>
+                    <span class="qd-perf-item__pct">92%</span>
+                  </div>
+                </li>
+                <li class="qd-perf-item">
+                  <p class="qd-perf-item__q">What process do plants use to convert sunlight into energy?</p>
+                  <div class="qd-perf-item__row">
+                    <div class="qd-perf-item__bar" role="presentation">
+                      <span class="qd-perf-item__bar-fill" style="width: 92%"></span>
+                    </div>
+                    <span class="qd-perf-item__pct">92%</span>
+                  </div>
+                </li>
+                <li class="qd-perf-item">
+                  <p class="qd-perf-item__q">Which of the following is NOT a characteristic of living things?</p>
+                  <div class="qd-perf-item__row">
+                    <div class="qd-perf-item__bar" role="presentation">
+                      <span class="qd-perf-item__bar-fill" style="width: 92%"></span>
+                    </div>
+                    <span class="qd-perf-item__pct">92%</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <section class="qd-share" aria-labelledby="qd-share-title">
+            <div>
+              <h2 id="qd-share-title" class="qd-share__title">Share This Quiz</h2>
+              <p class="qd-share__desc">Invite students or share a link to take this quiz.</p>
+            </div>
+            <a class="qd-share__btn" href="share-quiz.html">
+              <img src="assets/icons/ic_share-outline.svg" alt="" width="18" height="18" />
+              Share Quiz
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

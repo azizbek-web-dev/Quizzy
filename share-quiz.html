@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Share Quiz — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/share-quiz/share-quiz.css" />
+  </head>
+  <body>
+    <div class="sq-page">
+      <div class="sq-layout">
+        <div class="sq-inner">
+        <header class="sq-head">
+          <a class="sq-back" href="quiz-detail.html" aria-label="Orqaga">
+            <img src="assets/icons/material-symbols_chevron-left-rounded.svg" alt="" width="20" height="20" />
+          </a>
+          <div class="sq-head__text">
+            <h1 class="sq-title">Share Quiz</h1>
+            <p class="sq-subtitle">
+              Share this quiz with students, colleagues, or on social media
+            </p>
+          </div>
+        </header>
+
+        <section class="sq-section" aria-labelledby="sq-link-label">
+          <label id="sq-link-label" class="sq-label" for="sq-share-url">Share Link</label>
+          <div class="sq-url-row">
+            <input
+              class="sq-input"
+              id="sq-share-url"
+              type="text"
+              readonly
+              value="https://quizmaster.com/quizzes/q1"
+            />
+            <button type="button" class="sq-copy-inline" data-sq-copy aria-label="Havoladan nusxa olish">
+              <img src="assets/icons/ic_copy-outline.svg" alt="" width="18" height="18" />
+            </button>
+          </div>
+        </section>
+
+        <section class="sq-section" aria-labelledby="sq-qr-label">
+          <h2 id="sq-qr-label" class="sq-label">QR Code</h2>
+          <div class="sq-qr-wrap">
+            <img src="assets/qr-quiz-placeholder.svg" alt="Quiz QR kodi" width="220" height="220" />
+          </div>
+          <a class="sq-btn-download" href="assets/qr-quiz-placeholder.svg" download="biology-quiz-qr.svg">
+            Download QR Code
+          </a>
+        </section>
+
+        <section class="sq-section sq-track" aria-labelledby="sq-track-title">
+          <div>
+            <h2 id="sq-track-title" class="sq-track__title">Track Shares</h2>
+            <p class="sq-track__desc">Get notified when someone accesses this link</p>
+          </div>
+          <label class="sq-switch">
+            <input class="sq-switch__input" type="checkbox" name="track_shares" checked aria-label="Ulashishlarni kuzatish" />
+            <span class="sq-switch__slider" aria-hidden="true"></span>
+          </label>
+        </section>
+        </div>
+      </div>
+
+      <footer class="sq-footer">
+        <div class="sq-footer__inner">
+          <button type="button" class="sq-btn-copy" data-sq-copy>
+            <img src="assets/icons/ic_copy-outline.svg" alt="" width="18" height="18" />
+            Copy Link
+          </button>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var input = document.getElementById("sq-share-url");
+        function copyLink() {
+          if (!input) return;
+          var v = input.value;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(v).catch(function () {
+              input.select();
+              try {
+                document.execCommand("copy");
+              } catch (e) {}
+            });
+          } else {
+            input.select();
+            try {
+              document.execCommand("copy");
+            } catch (e) {}
+          }
+        }
+        document.querySelectorAll("[data-sq-copy]").forEach(function (btn) {
+          btn.addEventListener("click", copyLink);
+        });
+      })();
+    </script>
+  </body>
+</html>

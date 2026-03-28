@@ -1,0 +1,167 @@
+/**
+ * Pastki CTA banner: gradient fon, matn, tugmalar, o‘ngda oq placeholder.
+ */
+
+.section--cta {
+  background-color: var(--color-black);
+  padding-block: var(--space-8) var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .section--cta {
+    padding-block: var(--space-10) var(--space-16);
+  }
+}
+
+.section__inner--cta {
+  max-width: 72rem;
+}
+
+.cta-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--gradient-cta-banner);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 900px) {
+  .cta-banner {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-10);
+    padding: var(--space-10) var(--space-10);
+  }
+}
+
+.cta-banner__content {
+  text-align: left;
+}
+
+.cta-banner__title {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.cta-banner__desc {
+  margin: 0 0 var(--space-8);
+  max-width: 28rem;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.cta-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 var(--space-6);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease, border-color 0.15s ease;
+}
+
+.cta-banner__btn:hover {
+  opacity: 0.95;
+}
+
+.cta-banner__btn:active {
+  transform: scale(0.98);
+}
+
+.cta-banner__btn--primary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.cta-banner__btn--primary:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+.cta-banner__btn--secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.cta-banner__btn--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cta-banner__btn:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.cta-banner__visual {
+  min-height: 10rem;
+  border-radius: 1rem;
+  background-color: var(--color-white);
+}
+
+@media (min-width: 900px) {
+  .cta-banner__visual {
+    min-height: 14rem;
+  }
+}
+
+/* Mobil: markaz, to‘liq kenglikdagi tugmalar */
+@media (max-width: 767px) {
+  .section--cta .section__inner--cta {
+    padding-inline: var(--space-4);
+  }
+
+  .cta-banner {
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-6);
+    border-radius: 1rem;
+  }
+
+  .cta-banner__content {
+    text-align: center;
+  }
+
+  .cta-banner__desc {
+    margin-inline: auto;
+    max-width: 22rem;
+  }
+
+  .cta-banner__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  .cta-banner__btn {
+    width: 100%;
+    min-height: 3rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cta-banner__visual {
+    min-height: 11rem;
+  }
+}

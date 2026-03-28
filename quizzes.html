@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Quizzes — Quizzy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-tokens.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-shell.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-sidebar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-toolbar.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-page-header.css" />
+    <link rel="stylesheet" href="css/dashboard/dashboard-quizzes.css" />
+  </head>
+  <body>
+    <div class="dash-app">
+      <input
+        type="checkbox"
+        id="dash-sidebar-toggle"
+        class="visually-hidden"
+        aria-hidden="true"
+      />
+
+      <aside class="dash-sidebar" aria-label="Dashboard navigatsiyasi">
+        <a class="dash-sidebar__brand" href="index.html">
+          <span class="dash-sidebar__logo-mark" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient
+                  id="dashLogoMarkGrad"
+                  x1="6"
+                  y1="4"
+                  x2="26"
+                  y2="28"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#22c55e" />
+                  <stop offset="0.5" stop-color="#7c3aed" />
+                  <stop offset="1" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                stroke="url(#dashLogoMarkGrad)"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+          </span>
+          <span class="dash-sidebar__logo-text">
+            <span class="dash-sidebar__logo-quiz">Quiz</span><span class="dash-sidebar__logo-zy">zy</span>
+          </span>
+        </a>
+
+        <div class="dash-sidebar__search" role="search">
+          <img
+            class="dash-sidebar__search-icon"
+            src="assets/icons/ic_search.svg"
+            alt=""
+            width="18"
+            height="18"
+          />
+          <input
+            class="dash-sidebar__search-input"
+            type="search"
+            placeholder="Search"
+            aria-label="Qidiruv"
+          />
+        </div>
+
+        <nav class="dash-sidebar__nav" aria-label="Asosiy">
+          <a class="dash-sidebar__link" href="dashboard.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_dashboard.svg" alt="" width="22" height="22" />
+            Dashboard
+          </a>
+          <a class="dash-sidebar__link dash-sidebar__link--active" href="quizzes.html" aria-current="page">
+            <img class="dash-sidebar__link-icon" src="assets/icons/lucide_book-open.svg" alt="" width="22" height="22" />
+            Quizzes
+          </a>
+          <a class="dash-sidebar__link" href="#">
+            <img class="dash-sidebar__link-icon" src="assets/icons/uil_calendar.svg" alt="" width="22" height="22" />
+            Events
+          </a>
+          <a class="dash-sidebar__link" href="students.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/tabler_users.svg" alt="" width="22" height="22" />
+            Students
+          </a>
+        </nav>
+
+        <p class="dash-sidebar__section-label">Manage</p>
+        <nav class="dash-sidebar__nav dash-sidebar__footer-nav" aria-label="Boshqaruv">
+          <a class="dash-sidebar__link" href="settings.html">
+            <img class="dash-sidebar__link-icon" src="assets/icons/ic_outline-settings.svg" alt="" width="22" height="22" />
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      <label class="dash-app__sidebar-backdrop" for="dash-sidebar-toggle" tabindex="-1" aria-hidden="true"></label>
+
+      <div class="dash-app__main">
+        <header class="dash-toolbar">
+          <label class="dash-toolbar__menu-btn" for="dash-sidebar-toggle">
+            <span class="visually-hidden">Yon panelni ochish yoki yopish</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+            </svg>
+          </label>
+
+          <a class="dash-toolbar__brand" href="index.html">
+            <span class="dash-toolbar__logo-mark" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient
+                    id="dashToolbarLogoGrad"
+                    x1="6"
+                    y1="4"
+                    x2="26"
+                    y2="28"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#22c55e" />
+                    <stop offset="0.5" stop-color="#7c3aed" />
+                    <stop offset="1" stop-color="#f97316" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M22 7c-5.5 0-9.5 3.2-9.5 8.2 0 3.4 2.4 5.8 6.8 7 4.2 1.1 6.7 3.4 6.7 6.8 0 5.2-4.8 8.5-11.5 8.5-4.2 0-8-1.4-10.5-4"
+                  stroke="url(#dashToolbarLogoGrad)"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <span class="dash-toolbar__logo-text">
+              <span class="dash-toolbar__logo-quiz">Quiz</span><span class="dash-toolbar__logo-zy">zy</span>
+            </span>
+          </a>
+
+          <div class="dash-toolbar__search" role="search">
+            <img
+              class="dash-toolbar__search-icon"
+              src="assets/icons/ic_search.svg"
+              alt=""
+              width="18"
+              height="18"
+            />
+            <input
+              class="dash-toolbar__search-input"
+              type="search"
+              placeholder="Search..."
+              aria-label="Qidiruv"
+            />
+          </div>
+
+          <div class="dash-toolbar__actions">
+            <a class="dash-toolbar__btn-create dash-toolbar__btn-create--solid" href="create-quiz.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+              </svg>
+              <span>Create Quiz</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="dash-app__content">
+          <header class="dash-page-head">
+            <div class="dash-page-head__text">
+              <h1 class="dash-page-head__title">Quizzes</h1>
+              <p class="dash-page-head__greet">Create, manage and analyze your quizzes</p>
+            </div>
+            <div class="dash-page-head__cta">
+              <a class="dash-page-head__btn-primary" href="create-quiz.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+                </svg>
+                Create New Quiz
+              </a>
+            </div>
+          </header>
+
+          <section class="qz-library" aria-labelledby="qz-library-title">
+            <div class="qz-library__panel">
+              <div class="qz-library__head">
+                <h2 id="qz-library-title" class="qz-library__title">Quiz Library</h2>
+                <p class="qz-library__subtitle">Browse and manage all your quizzes</p>
+              </div>
+
+              <div class="qz-library__bar">
+                <div class="qz-tabs" role="tablist" aria-label="Quiz filtrlari">
+                  <button type="button" class="qz-tabs__btn qz-tabs__btn--active" role="tab" aria-selected="true">
+                    All Quizzes
+                  </button>
+                  <button type="button" class="qz-tabs__btn" role="tab" aria-selected="false">Published</button>
+                  <button type="button" class="qz-tabs__btn" role="tab" aria-selected="false">Drafts</button>
+                </div>
+                <div class="qz-library__filters">
+                  <label class="visually-hidden" for="qz-search-quizzes">Quizlarni qidirish</label>
+                  <input
+                    class="qz-library__search"
+                    id="qz-search-quizzes"
+                    type="search"
+                    placeholder="Search quizzes..."
+                    autocomplete="off"
+                  />
+                  <div class="qz-filter-select-wrap">
+                    <img
+                      class="qz-filter-select-wrap__icon"
+                      src="assets/icons/mdi_filter-outline.svg"
+                      alt=""
+                      width="18"
+                      height="18"
+                    />
+                    <label class="visually-hidden" for="qz-category-filter">Kategoriya</label>
+                    <select class="qz-filter-select" id="qz-category-filter">
+                      <option value="all" selected>All Categories</option>
+                      <option value="science">Science</option>
+                      <option value="math">Mathematics</option>
+                      <option value="history">History</option>
+                    </select>
+                    <img
+                      class="qz-filter-select-wrap__chevron"
+                      src="assets/icons/tabler_chevron-down.svg"
+                      alt=""
+                      width="18"
+                      height="18"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <ul class="qz-list">
+                <li class="qz-row">
+                  <div class="qz-row__main">
+                    <div class="qz-row__icon-wrap" aria-hidden="true">
+                      <img class="qz-row__icon" src="assets/icons/lucide_book-open.svg" alt="" width="20" height="20" />
+                    </div>
+                    <div class="qz-row__body">
+                      <div class="qz-row__title-row">
+                        <h3 class="qz-row__title">Introduction to Biology</h3>
+                        <span class="qz-pill qz-pill--published">Published</span>
+                      </div>
+                      <p class="qz-row__desc">Basic concepts of biology for beginners</p>
+                      <div class="qz-row__meta">
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/lucide_book-open.svg" alt="" width="14" height="14" />
+                          15 questions
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_clock.svg" alt="" width="14" height="14" />
+                          20 min
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_users.svg" alt="" width="14" height="14" />
+                          32 completions
+                        </span>
+                        <span class="qz-row__meta-item">Created just now</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qz-row__actions">
+                    <a class="qz-row__btn-view" href="quiz-detail.html">View</a>
+                    <details class="qz-menu">
+                      <summary class="qz-row__btn-more">
+                        <span class="visually-hidden">Amallar menyusi</span>
+                        <img src="assets/icons/charm_menu-kebab.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      </summary>
+                      <div class="qz-menu__panel" role="menu" aria-label="Quiz amallari">
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_edit-outline.svg" alt="" width="18" height="18" />
+                          Edit
+                        </button>
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_duplicate-outline.svg" alt="" width="18" height="18" />
+                          Duplicate
+                        </button>
+                        <div class="qz-menu__divider" role="separator"></div>
+                        <button type="button" class="qz-menu__item qz-menu__item--danger" role="menuitem">
+                          <img src="assets/icons/gg_trash.svg" alt="" width="18" height="18" />
+                          Delete
+                        </button>
+                      </div>
+                    </details>
+                  </div>
+                </li>
+
+                <li class="qz-row">
+                  <div class="qz-row__main">
+                    <div class="qz-row__icon-wrap" aria-hidden="true">
+                      <img class="qz-row__icon" src="assets/icons/lucide_book-open.svg" alt="" width="20" height="20" />
+                    </div>
+                    <div class="qz-row__body">
+                      <div class="qz-row__title-row">
+                        <h3 class="qz-row__title">World History: Ancient Civilizations</h3>
+                        <span class="qz-pill qz-pill--draft">Draft</span>
+                      </div>
+                      <p class="qz-row__desc">From Mesopotamia to the Roman Empire</p>
+                      <div class="qz-row__meta">
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/lucide_book-open.svg" alt="" width="14" height="14" />
+                          22 questions
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_clock.svg" alt="" width="14" height="14" />
+                          30 min
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_users.svg" alt="" width="14" height="14" />
+                          0 completions
+                        </span>
+                        <span class="qz-row__meta-item">Created 2 days ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qz-row__actions">
+                    <a class="qz-row__btn-view" href="quiz-detail.html">View</a>
+                    <details class="qz-menu">
+                      <summary class="qz-row__btn-more">
+                        <span class="visually-hidden">Amallar menyusi</span>
+                        <img src="assets/icons/charm_menu-kebab.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      </summary>
+                      <div class="qz-menu__panel" role="menu" aria-label="Quiz amallari">
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_edit-outline.svg" alt="" width="18" height="18" />
+                          Edit
+                        </button>
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_duplicate-outline.svg" alt="" width="18" height="18" />
+                          Duplicate
+                        </button>
+                        <div class="qz-menu__divider" role="separator"></div>
+                        <button type="button" class="qz-menu__item qz-menu__item--danger" role="menuitem">
+                          <img src="assets/icons/gg_trash.svg" alt="" width="18" height="18" />
+                          Delete
+                        </button>
+                      </div>
+                    </details>
+                  </div>
+                </li>
+
+                <li class="qz-row">
+                  <div class="qz-row__main">
+                    <div class="qz-row__icon-wrap" aria-hidden="true">
+                      <img class="qz-row__icon" src="assets/icons/lucide_book-open.svg" alt="" width="20" height="20" />
+                    </div>
+                    <div class="qz-row__body">
+                      <div class="qz-row__title-row">
+                        <h3 class="qz-row__title">Algebra Fundamentals</h3>
+                        <span class="qz-pill qz-pill--published">Published</span>
+                      </div>
+                      <p class="qz-row__desc">Linear equations, polynomials, and problem solving</p>
+                      <div class="qz-row__meta">
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/lucide_book-open.svg" alt="" width="14" height="14" />
+                          18 questions
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_clock.svg" alt="" width="14" height="14" />
+                          25 min
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_users.svg" alt="" width="14" height="14" />
+                          128 completions
+                        </span>
+                        <span class="qz-row__meta-item">Created last week</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qz-row__actions">
+                    <a class="qz-row__btn-view" href="quiz-detail.html">View</a>
+                    <details class="qz-menu">
+                      <summary class="qz-row__btn-more">
+                        <span class="visually-hidden">Amallar menyusi</span>
+                        <img src="assets/icons/charm_menu-kebab.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      </summary>
+                      <div class="qz-menu__panel" role="menu" aria-label="Quiz amallari">
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_edit-outline.svg" alt="" width="18" height="18" />
+                          Edit
+                        </button>
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_duplicate-outline.svg" alt="" width="18" height="18" />
+                          Duplicate
+                        </button>
+                        <div class="qz-menu__divider" role="separator"></div>
+                        <button type="button" class="qz-menu__item qz-menu__item--danger" role="menuitem">
+                          <img src="assets/icons/gg_trash.svg" alt="" width="18" height="18" />
+                          Delete
+                        </button>
+                      </div>
+                    </details>
+                  </div>
+                </li>
+
+                <li class="qz-row">
+                  <div class="qz-row__main">
+                    <div class="qz-row__icon-wrap" aria-hidden="true">
+                      <img class="qz-row__icon" src="assets/icons/lucide_book-open.svg" alt="" width="20" height="20" />
+                    </div>
+                    <div class="qz-row__body">
+                      <div class="qz-row__title-row">
+                        <h3 class="qz-row__title">English Literature Quiz</h3>
+                        <span class="qz-pill qz-pill--published">Published</span>
+                      </div>
+                      <p class="qz-row__desc">Shakespeare, poetry, and classic novels</p>
+                      <div class="qz-row__meta">
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/lucide_book-open.svg" alt="" width="14" height="14" />
+                          12 questions
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_clock.svg" alt="" width="14" height="14" />
+                          15 min
+                        </span>
+                        <span class="qz-row__meta-item">
+                          <img src="assets/icons/tabler_users.svg" alt="" width="14" height="14" />
+                          54 completions
+                        </span>
+                        <span class="qz-row__meta-item">Created 3 weeks ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qz-row__actions">
+                    <a class="qz-row__btn-view" href="quiz-detail.html">View</a>
+                    <details class="qz-menu">
+                      <summary class="qz-row__btn-more">
+                        <span class="visually-hidden">Amallar menyusi</span>
+                        <img src="assets/icons/charm_menu-kebab.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      </summary>
+                      <div class="qz-menu__panel" role="menu" aria-label="Quiz amallari">
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_edit-outline.svg" alt="" width="18" height="18" />
+                          Edit
+                        </button>
+                        <button type="button" class="qz-menu__item" role="menuitem">
+                          <img src="assets/icons/ic_duplicate-outline.svg" alt="" width="18" height="18" />
+                          Duplicate
+                        </button>
+                        <div class="qz-menu__divider" role="separator"></div>
+                        <button type="button" class="qz-menu__item qz-menu__item--danger" role="menuitem">
+                          <img src="assets/icons/gg_trash.svg" alt="" width="18" height="18" />
+                          Delete
+                        </button>
+                      </div>
+                    </details>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        document.querySelectorAll(".qz-menu").forEach(function (menu) {
+          menu.addEventListener("toggle", function () {
+            if (menu.open) {
+              document.querySelectorAll(".qz-menu[open]").forEach(function (other) {
+                if (other !== menu) other.removeAttribute("open");
+              });
+            }
+          });
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".qz-menu")) {
+            document.querySelectorAll(".qz-menu[open]").forEach(function (m) {
+              m.removeAttribute("open");
+            });
+          }
+        });
+
+        document.querySelectorAll(".qz-menu__item").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var d = btn.closest("details");
+            if (d) d.removeAttribute("open");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

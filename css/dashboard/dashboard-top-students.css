@@ -1,0 +1,85 @@
+/**
+ * Dashboard — Top Students jadvali.
+ */
+
+.dash-top-students {
+  background: var(--dash-bg-sidebar);
+  border: 1px solid var(--dash-border);
+  border-radius: var(--dash-radius-lg);
+  padding: var(--space-6);
+}
+
+.dash-top-students__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dash-top-student {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dash-top-student__rank {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #27272a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+.dash-top-student__avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.dash-top-student__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-top-student__name {
+  margin: 0 0 0.125rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.dash-top-student__subject {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--dash-text-muted);
+}
+
+.dash-top-student__score {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.dash-top-student__score-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  object-fit: contain;
+}
+
+.dash-top-student__score-value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--dash-score);
+}
